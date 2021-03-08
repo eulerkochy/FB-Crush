@@ -1,0 +1,60 @@
+{
+	"manifest_version": 2,
+	"name": "Facebook Crush",
+	"description": "Know if your Crush likes you back !",
+	"icons":
+	{
+		"48": "images/icon48.png",
+		"64": "images/icon64.png", 
+		"128": "images/icon128.png"
+	},
+	"version": "1.1.4",
+
+	"browser_action":
+	{
+		"default_icon": 
+		{
+			"48": "images/icon48.png",
+			"64": "images/icon64.png", 
+			"128": "images/icon128.png"
+		},
+
+		"default_title": "Facebook Crush",
+		"default_popup": "popup.html"
+	},
+
+	"permissions":
+	["identity"],
+
+	"background": {
+			"page": "background.html",
+    		"persistent": false
+	},
+
+	"content_security_policy": "script-src 'self' https://www.gstatic.com/ https://www.googleapis.com https://cdn.firebase.com https://*.firebaseio.com https://*.firebaseio-demo.com https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com/; object-src 'self'",
+  
+	"content_scripts":
+	[
+		{
+			"css": ["styles.css"],
+			"js": ["content.js"],
+    		"matches": 
+			[
+				"http://www.facebook.com/*", 
+				"https://www.facebook.com/*"
+			]
+		}
+	],	
+
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoulSyaPRI5WrPgDPne8JE6nKsNV3DHAAHk/kuNfHNaikdOOznFtDKEUtJ/OfvZwuwv6LrWKe0KPiZEG0rIZYV4q9icoq8/li9lx+qe77HlGEDtshVWzcEcyEcWC4wHcn0pw5QqTlvtOHwj0o2c2YbBVZXBQyUDXOQDo3plPpel7zaUg9K80JLkABAOSL6h9RXDnbhNlfDzos03fE82maVRw0aIA/5+1Rz6Jq37W/5nOugdD7t5jIt38UB9j4qgi4dEQGUETmVQcqQQYc2zGzbw5vWlY8+SvHTjylclaRMVUGkZr9q3Q+DRg3ZLAYFu/p/cgifbNiWk5whcB62wsYdwIDAQAB",
+
+	"oauth2": {
+	    "client_id": "304425706788-5575lp1ond1jrf3sagqgo5le7skd5gji.apps.googleusercontent.com",
+	    "scopes":["https://www.googleapis.com/auth/userinfo.profile"]
+	},
+
+	"web_accessible_resources": [
+	]
+	
+
+}
